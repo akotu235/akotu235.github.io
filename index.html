@@ -9,30 +9,34 @@
 			font-family: Calibri;
 		}
 		.main-container {
+			margin: 25px;
 			display: flex;
 			justify-content: center;
 		}
 		.links-container {
-			margin: 25px;
 			font-size: 72px;
 			display: flex;
 			flex-direction: column;
 		}
-		div.link {
+		.link {
 			color: white;
 			border: 7px solid black;
 			border-radius: 20px;
 			text-align: center;
 			display: table-cell;
 			vertical-align: middle;
-			height: 17vh;
+			height: 21vh;
 			width: 62vw;
 		}
-		div.link:hover {
+		.link:hover {
 			border: 7px solid red;
 		}
 		.fa-regular.fa-copy:hover {
 			color: red;
+		}
+		.closeButton:hover {
+			color: red;
+			cursor: pointer;
 		}
 		.label {
 			display: inline-block;
@@ -46,9 +50,41 @@
 		.link:hover .label-hover {
 		  display: inline-block;
 		}
+		.chatButton:hover .label {
+		  display: none;
+		}
+		.chatButton:hover .label-hover {
+		  display: inline-block;
+		}
+		div.chatButton {
+			position: absolute;
+			bottom: 40px;
+			right: 40px;
+			font-size: 40px;
+			color: white;
+			height: 80px;
+			width: 80px;
+			border: 7px solid black;
+			border-radius: 100%;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+		.chatWindow {
+			color: black;
+			border: 7px solid black;
+			border-radius: 20px;
+			background-color: #4ba508;
+		}
+		.chat {
+			margin: 7px;
+		}
 	</style>
 </head>
 <body>
+	
 	<div class="main-container">
 		<div class="links-container">
 			
@@ -76,29 +112,41 @@
 						<i class="fa-solid fa-envelope"></i>
 					</div>	
 					<div class="label-hover">
-						<div style='display: inline-block; font-size: 30px'><i class="fa-solid fa-envelope"></i></br>akotu@protonmail.com<i class="fa-regular fa-copy" fa-copy' style='font-size: 24px; margin: 15px;' onclick="javascript:cpMail(event)"></i></div>
-					</div>
-				</div>
-				</a>
-
-			<a href="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0">
-				<div class="link" style='background-color: #ffa500'>
-					<div class="label">
-						<i class="fa-solid fa-comments"></i>
-					</div>
-					<div class="label-hover">
-						<img src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget">
+						<div style='display: inline-block; font-size: 30px'><i class="fa-solid fa-envelope"></i></br>akotu@protonmail.com<i class="fa-regular fa-copy" style='font-size: 24px; margin: 15px;' onclick="javascript:cpMail(event)"></i></div>
 					</div>
 				</div>
 			</a>
 		
 		</div>
+		
+		<div class="chatButton" style='background-color: #4ba508' onclick="javascript:toggleChat()">
+			<div class="label">
+				<i class="fa-solid fa-comments"></i>
+			</div>
+			<div class="label-hover">
+				<img src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget" height="40" width="40">
+			</div>
+		</div>
+		<div id="chatWindow" class='chatWindow' hidden>
+			<button class="closeButton" onclick="javascript:closeChat()" style="float: right; margin: 10px"><i class="fa-solid fa-xmark"></i></button>
+			<div class='chat'>
+				<iframe style="height: 82vh" src="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0" width="500" ></iframe>
+			</div>
+		</div>
+		
 	</div>
+	
 	<script>
 		var mail = 'akotu@protonmail.com';
 		function cpMail(e){
 			navigator.clipboard.writeText(mail);
 			e.preventDefault();
+		}
+		function toggleChat() {
+			chatWindow.hidden = !chatWindow.hidden;
+		}
+		function closeChat() {
+			chatWindow.hidden = true;
 		}
     </script>
 </body>
