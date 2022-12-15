@@ -9,7 +9,7 @@
 			font-family: Calibri;
 		}
 		.main-container {
-			margin: 25px;
+			margin: 4vh;
 			display: flex;
 			justify-content: center;
 		}
@@ -34,7 +34,15 @@
 		.fa-regular.fa-copy:hover {
 			color: red;
 		}
-		.closeButton:hover {
+		.chatWindowButtons {
+			float: right; 
+			margin: 6px 10px 5px 0px;
+			width: 30px;
+			height: 30px;
+			color: black;
+			cursor: pointer;
+		}
+		.chatWindowButtons:hover {
 			color: red;
 			cursor: pointer;
 		}
@@ -128,7 +136,8 @@
 			</div>
 		</div>
 		<div id="chatWindow" class='chatWindow' hidden>
-			<button class="closeButton" onclick="javascript:closeChat()" style="float: right; margin: 10px"><i class="fa-solid fa-xmark"></i></button>
+			<button class="chatWindowButtons" onclick="javascript:closeChat()"><i class="fa-solid fa-xmark"></i></button>
+			<button class="chatWindowButtons" onclick="javascript:newTabChat()"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
 			<div class='chat'>
 				<iframe style="height: 82vh" src="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0" width="500" ></iframe>
 			</div>
@@ -147,6 +156,9 @@
 		}
 		function closeChat() {
 			chatWindow.hidden = true;
+		}
+		function newTabChat() {
+			window.open("https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0")
 		}
     </script>
 </body>
