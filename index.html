@@ -7,11 +7,14 @@
 		body {
 			background-color: black;
 			font-family: Calibri;
+			display: flex;
+			justify-content: center;
 		}
 		.main-container {
 			margin: 4vh;
 			display: flex;
 			justify-content: center;
+			width: 62vw;
 		}
 		.links-container {
 			font-size: 72px;
@@ -27,6 +30,7 @@
 			vertical-align: middle;
 			height: 21vh;
 			width: 62vw;
+			
 		}
 		.link:hover {
 			border: 7px solid red;
@@ -127,12 +131,12 @@
 		
 		</div>
 		
-		<div class="chatButton" style='background-color: #4ba508' onclick="javascript:toggleChat()">
+		<div id='gg' class="chatButton" style='background-color: #4ba508' onclick="javascript:toggleChat()">
 			<div class="label">
 				<i class="fa-solid fa-comments"></i>
 			</div>
 			<div class="label-hover">
-				<img src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget" height="40" width="40">
+				<img id='ggStatus' src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget" height="40" width="40">
 			</div>
 		</div>
 		<div id="chatWindow" class='chatWindow' hidden>
@@ -157,7 +161,7 @@
 			}
 			else {
 				chatWindow.hidden = !chatWindow.hidden;
-			}			
+			}
 		}
 		function closeChat() {
 			chatWindow.hidden = true;
