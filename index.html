@@ -1,173 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact me</title>
-<script src="https://kit.fontawesome.com/5a1d036c68.js" crossorigin="anonymous"></script>
-	<style>
-		body {
-			background-color: black;
-			font-family: Calibri;
-			display: flex;
-			justify-content: center;
-		}
-		.main-container {
-			margin: 4vh;
-			display: flex;
-			justify-content: center;
-			width: 62vw;
-		}
-		.links-container {
-			font-size: 72px;
-			display: flex;
-			flex-direction: column;
-		}
-		.link {
-			color: white;
-			border: 7px solid black;
-			border-radius: 20px;
-			text-align: center;
-			display: table-cell;
-			vertical-align: middle;
-			height: 21vh;
-			width: 62vw;
-		}
-		.link:hover {
-			border: 7px solid red;
-		}
-		.fa-regular.fa-copy:hover {
-			color: red;
-		}
-		.chatWindowButtons {
-			float: right; 
-			margin: 6px 10px 5px 0px;
-			width: 30px;
-			height: 30px;
-			color: black;
-			cursor: pointer;
-		}
-		.chatWindowButtons:hover {
-			color: red;
-			cursor: pointer;
-		}
-		.label {
-			display: inline-block;
-		}
-		.label-hover {
-			display: none;
-		}
-		.link:hover .label {
-		  display: none;
-		}
-		.link:hover .label-hover {
-		  display: inline-block;
-		}
-		.chatButton:hover .label {
-		  display: none;
-		}
-		.chatButton:hover .label-hover {
-		  display: inline-block;
-		}
-		div.chatButton {
-			position: fixed;
-			bottom: 40px;
-			right: 40px;
-			font-size: 40px;
-			color: white;
-			height: 80px;
-			width: 80px;
-			border: 7px solid black;
-			border-radius: 100%;
-			text-align: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			cursor: pointer;
-		}
-		.chatWindow {
-			color: black;
-			border: 7px solid black;
-			border-radius: 20px;
-			background-color: #4ba508;
-		}
-		.chat {
-			margin: 7px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Contact me</title>
+    <script src="https://kit.fontawesome.com/5a1d036c68.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: black;
+            font-family: Calibri, serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-container {
+            margin: 4vh;
+            display: flex;
+            justify-content: center;
+            width: 62vw;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .photo {
+            border-radius: 100%;
+            height: 30vh;
+            margin: 1vh;
+        }
+
+        .contact {
+            display: flex;
+        }
+
+        .chatWindow {
+            flex: 1;
+            color: black;
+            border-radius: 20px;
+            background-color: #4ba508;
+            max-width: 520px;
+            margin: 1vh;
+        }
+
+        #chat {
+            height: calc(50vh - 100px);
+        }
+
+        .chat {
+            margin: 1vh;
+        }
+
+        .links-container {
+            flex: 1;
+            font-size: 6vh;
+            display: flex;
+        }
+
+        .link {
+            color: white;
+            border: 1vh solid black;
+            border-radius: 20px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: 7vh;
+            width: 62vw;
+            min-width: 9vh;
+        }
+
+        .link:hover {
+            border: 1vh solid white;
+        }
+
+        .fa-regular.fa-copy:hover {
+            color: black;
+        }
+
+        .chatWindowButtons {
+            float: right;
+            margin: 0.5vh 1vh 0.5vh 0;
+            width: 2vh;
+            height: 2vh;
+            color: black;
+            cursor: pointer;
+            font-size: 1vh;
+        }
+
+        .chatWindowButtons:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        .label {
+            display: inline-block;
+        }
+
+        .label-hover {
+            display: none;
+        }
+
+        .link:hover .label {
+            display: none;
+        }
+
+        .link:hover .label-hover {
+            display: inline-block;
+        }
+
+    </style>
 </head>
 <body>
-	
-	<div class="main-container">
-		<div class="links-container">
-			
-			<a href="https://github.com/akotu235">
-				<div class="link" style='background-color: #333'>
-					<i class="fa-brands fa-github"></i>	
-				</div>
-			</a>
+<div class="main-container">
+    <div class="header">
+        <img class="photo" src="images/photo.png" alt="photo">
+        <img src="images/msg.svg" alt="greeting">
+    </div>
+    <div class="contact">
+        <div class="links-container">
+            <a href="https://github.com/akotu235">
+                <div class="link" style='background-color: #333'>
+                    <i class="fa-brands fa-github"></i>
+                </div>
+            </a>
+            <a href="https://facebook.com/andrzej.kotulski.23">
+                <div class="link" style='background-color: #4267B2'>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+            </a>
+            <a href="https://m.me/andrzej.kotulski.23">
+                <div class="link" style='background-color: #0084ff'>
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                </div>
+            </a>
+            <a href="mailto:akotu@pm.me">
+                <div class="link" style='background-color: #9370db'>
+                    <div class="label">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="label-hover">
+                        <div style='display: inline-block; font-size: 2vh'><i class="fa-solid fa-envelope"></i><br>akotu@pm.me<i
+                                class="fa-regular fa-copy" style='font-size: 1.5vh; margin: 1vh;'
+                                onclick="cpMail(event)"></i></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id='gg' class="link" style='background-color: #4ba508' onclick="toggleChat()">
+                    <div class="label">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div class="label-hover">
+                        <img id='ggStatus'
+                             src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget"
+                             height="40"
+                             width="40"
+                             alt="gg status">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="chatWindow" class='chatWindow' hidden>
+            <button class="chatWindowButtons" onclick="closeChat()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="chatWindowButtons" onclick="stretchChat()"><i
+                    class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+            <div class='chat'>
+                <iframe id="chat"
+                        src="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+                        width="500"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var mail = 'akotu@pm.me';
 
-			<a href="https://facebook.com/andrzej.kotulski.23">
-				<div class="link" style='background-color: #4267B2'>
-					<i class="fa-brands fa-facebook"></i>
-				</div>
-			</a>
-		
-			<a href="https://m.me/andrzej.kotulski.23">
-				<div class="link" style='background-color: #0084ff'>
-					<i class="fa-brands fa-facebook-messenger"></i>
-				</div>
-			</a>
-			
-			<a href="mailto:akotu@protonmail.com">
-				<div class="link" style='background-color: #9370db'>
-					<div class="label">
-						<i class="fa-solid fa-envelope"></i>
-					</div>	
-					<div class="label-hover">
-						<div style='display: inline-block; font-size: 30px'><i class="fa-solid fa-envelope"></i></br>akotu@protonmail.com<i class="fa-regular fa-copy" style='font-size: 24px; margin: 15px;' onclick="javascript:cpMail(event)"></i></div>
-					</div>
-				</div>
-			</a>
-		
-		</div>
-		
-		<div id='gg' class="chatButton" style='background-color: #4ba508' onclick="javascript:toggleChat()">
-			<div class="label">
-				<i class="fa-solid fa-comments"></i>
-			</div>
-			<div class="label-hover">
-				<img id='ggStatus' src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget" height="40" width="40">
-			</div>
-		</div>
-		<div id="chatWindow" class='chatWindow' hidden>
-			<button class="chatWindowButtons" onclick="javascript:closeChat()"><i class="fa-solid fa-xmark"></i></button>
-			<button class="chatWindowButtons" onclick="javascript:stretchChat()"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
-			<div class='chat'>
-				<iframe style="height: 82vh" src="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0" width="500" ></iframe>
-			</div>
-		</div>
-		
-	</div>
-	
-	<script>
-		var mail = 'akotu@protonmail.com';
-		function cpMail(e){
-			navigator.clipboard.writeText(mail);
-			e.preventDefault();
-		}
-		function toggleChat() {
-			if (navigator.userAgent.toLowerCase().match(/mobile/i) || navigator.userAgent.toLowerCase().match(/tablet/i) || navigator.userAgent.toLowerCase().match(/android/i) || navigator.userAgent.toLowerCase().match(/iphone/i) || navigator.userAgent.toLowerCase().match(/ipad/i)) {
-				window.location="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
-			}
-			else {
-				chatWindow.hidden = !chatWindow.hidden;
-			}
-		}
-		function closeChat() {
-			chatWindow.hidden = true;
-		}
-		function stretchChat() {
-			window.location="https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
-		}
-    </script>
+    function cpMail(e) {
+        navigator.clipboard.writeText(mail);
+        e.preventDefault();
+    }
+
+    function toggleChat() {
+        if (navigator.userAgent.toLowerCase().match(/mobile/i) || navigator.userAgent.toLowerCase().match(/tablet/i) || navigator.userAgent.toLowerCase().match(/android/i) || navigator.userAgent.toLowerCase().match(/iphone/i) || navigator.userAgent.toLowerCase().match(/ipad/i)) {
+            window.location = "https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+        } else {
+            if (chatWindow.hidden) {
+                chatWindow.hidden = false;
+                document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+                document.getElementsByClassName("links-container")[0].style.width = "10vw";
+            } else {
+                closeChat();
+            }
+        }
+    }
+
+    function closeChat() {
+        chatWindow.hidden = true;
+        document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+        document.getElementsByClassName("links-container")[0].style.width = "62vw";
+    }
+
+    function stretchChat() {
+        window.location = "https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DWitam%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+    }
+</script>
 </body>
 </html> 
