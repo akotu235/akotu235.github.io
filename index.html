@@ -83,10 +83,7 @@
             height: 7vh;
             width: 62vw;
             min-width: 9vh;
-        }
-
-        .link:hover {
-            border: 1vh solid #f5f5f5 !important;
+            transition: transform 0.5s ease;
         }
 
         .fa-regular.fa-copy:hover {
@@ -227,6 +224,25 @@
             contact.style.transform = "scale(1)";
         }, 900);
     };
+
+    const elements = document.querySelectorAll('.link');
+    const container = document.querySelector('.links-container');
+    elements.forEach(element => {
+        element.addEventListener('mouseenter', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(-1vh)';
+            } else {
+                this.style.transform = 'translateX(-1vh)';
+            }
+        });
+        element.addEventListener('mouseleave', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'translateX(0)';
+            }
+        });
+    });
 
     var mail = 'akotu@pm.me';
 
