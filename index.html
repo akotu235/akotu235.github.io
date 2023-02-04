@@ -141,7 +141,7 @@
 <div class="main-container">
     <div class="header">
         <div style="height: 30vh;"><img class="photo" id="photo" src="images/photo.jpg" alt="photo"></div>
-        <img class="greeting" src="images/msg.svg" alt="greeting">
+        <img id="greeting" class="greeting" src="images/msg.svg" alt="greeting">
     </div>
     <div id="contact">
         <div class="contact">
@@ -202,6 +202,10 @@
     </div>
 </div>
 <script>
+    var greeting = document.getElementById("greeting");
+    var date = new Date();
+    greeting.src = greeting.src + "?" + date.getTime();
+
     window.onload = function () {
         var photo = document.getElementById("photo");
         photo.style.display = "block";
