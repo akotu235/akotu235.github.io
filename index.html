@@ -54,7 +54,7 @@
         .chatWindow {
             flex: 1;
             color: #000000 !important;
-            border-radius: 20px;
+            border-radius: 2vh;
             background-color: #4ba508 !important;
             margin: 1vh;
         }
@@ -84,6 +84,11 @@
             width: 62vw;
             min-width: 9vh;
             transition: transform 0.5s ease;
+        }
+
+        #ggStatus {
+            height: 4.5vh;
+            width: auto;
         }
 
         .fa-regular.fa-copy:hover {
@@ -129,6 +134,10 @@
             .link {
                 height: 6vh;
                 min-width: 6vh;
+            }
+
+            #ggStatus {
+                height: 3.5vh;
             }
         }
 
@@ -178,17 +187,18 @@
                         <div class="label-hover">
                             <img id='ggStatus'
                                  src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget"
-                                 height="40"
-                                 width="40"
                                  alt="gg status">
                         </div>
                     </div>
                 </a>
             </div>
             <div id="chatWindow" class='chatWindow' hidden>
-                <button class="chatWindowButtons" onclick="closeChat()"><i class="fa-solid fa-xmark"></i></button>
-                <button class="chatWindowButtons" onclick="stretchChat()"><i
-                        class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+                <button class="chatWindowButtons" onclick="closeChat()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button class="chatWindowButtons" onclick="stretchChat()">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                </button>
                 <div class='chat'>
                     <iframe id="chat"
                             src="https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
