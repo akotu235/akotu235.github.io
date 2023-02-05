@@ -128,7 +128,7 @@
             display: inline-block;
         }
 
-        @media (max-width: 560px) {
+        @media (max-width: 820px) {
             .links-container {
                 font-size: 4vh;
             }
@@ -218,6 +218,18 @@
     var greeting = document.getElementById("greeting");
     var date = new Date();
     greeting.src = greeting.src + "?" + date.getTime();
+
+    if (window.innerWidth < window.innerHeight) {
+        document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+    }
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth < window.innerHeight) {
+            document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+        } else {
+            document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+        }
+    });
 
     window.onload = function () {
         var photo = document.getElementById("photo");
