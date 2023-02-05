@@ -224,10 +224,12 @@
     }
 
     window.addEventListener('resize', function () {
-        if (window.innerWidth < window.innerHeight) {
-            document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-        } else {
-            document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+        if (chatWindow.hidden === true) {
+            if (window.innerWidth < window.innerHeight) {
+                document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+            } else {
+                document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+            }
         }
     });
 
