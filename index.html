@@ -3,182 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Andrzej Kotulski</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-    <style>
-        body {
-            background-color: #000000 !important;
-            font-family: Calibri, serif;
-            display: flex;
-            justify-content: center;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .main-container {
-            margin: 4vh;
-            display: flex;
-            justify-content: center;
-            width: 62vw;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .photo {
-            border-radius: 100%;
-            height: 26vh;
-            margin: 1vh;
-        }
-
-        #photo {
-            display: none;
-        }
-
-        .greeting {
-            margin: 2vh 0;
-            width: 100%;
-            height: auto;
-        }
-
-        #contact {
-            display: none;
-        }
-
-        .links-container {
-            display: flex;
-        }
-
-        .link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #f5f5f5 !important;
-            border: 1vh solid #000000 !important;
-            border-radius: 2vh;
-            height: 7vh;
-            width: 15vw;
-            transition: transform 0.5s ease;
-        }
-
-        .ico {
-            height: 80%;
-        }
-
-        .chat-window {
-            background-color: #4ba508;
-            color: #000000 !important;
-            box-sizing: border-box;
-            border: 1vh solid #000000 !important;
-            border-radius: 2vh;
-            height: 100%;
-        }
-
-        .chat {
-            height: 100%;
-            margin: 1vh;
-        }
-
-        #chat-iframe {
-            height: 90%;
-            border-radius: 1vh;
-        }
-
-        #gg-status {
-            height: 4.5vh;
-            width: auto;
-        }
-
-        .chat-window-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            float: right;
-            margin: 0.5vh 1vh 0.5vh 0;
-            width: 2vh;
-            height: 2vh;
-            color: #000000;
-            cursor: pointer;
-            font-size: 1vh;
-        }
-
-        .chat-window-buttons:hover {
-            color: #4ba508;
-            cursor: pointer;
-        }
-
-        .label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 7vh;
-            width: 15vw;
-        }
-
-        .label-hover {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 2vh;
-        }
-
-        .link:hover .label {
-            display: none;
-        }
-
-        .link:hover .label-hover {
-            display: flex;
-        }
-
-        @media (max-width: 820px) {
-            .main-container {
-                width: 90vw;
-            }
-        }
-
-    </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
 </head>
 <body>
 <div class="main-container">
     <div class="header">
-        <div style="height: 28vh;"><img class="photo" id="photo" src="images/photo.jpg" alt="photo"></div>
-        <img id="greeting" class="greeting" src="images/msg.svg" alt="greeting">
+        <div style="height: 28vh;"><img class="photo" id="photo" src="assets/images/photo.jpg" alt="photo"></div>
+        <img id="greeting" class="greeting" src="assets/images/msg.svg" alt="greeting">
     </div>
     <div id="contact" class="contact">
         <div class="links-container">
             <a href="https://github.com/akotu235">
                 <div class="link" style='background-color: #333;'>
-                    <img class="ico" src="images/icons/github.svg" alt="github">
+                    <img class="ico" src="assets/icons/github.svg" alt="github">
                 </div>
             </a>
             <a href="https://facebook.com/andrzej.kotulski.23">
                 <div class="link" style='background-color: #4267B2'>
-                    <img class="ico" src="images/icons/facebook.svg" alt="facebook">
+                    <img class="ico" src="assets/icons/facebook.svg" alt="facebook">
                 </div>
             </a>
             <a href="https://m.me/andrzej.kotulski.23">
                 <div class="link" style='background-color: #0084ff'>
-                    <img class="ico" src="images/icons/messenger.svg" alt="messenger">
+                    <img class="ico" src="assets/icons/messenger.svg" alt="messenger">
                 </div>
             </a>
             <a href="mailto:akotu@pm.me">
                 <div class="link" style='background-color: #9370db'>
                     <div class="label">
-                        <img class="ico" src="images/icons/envelope.svg" alt="email">
+                        <img class="ico" src="assets/icons/envelope.svg" alt="email">
                     </div>
                     <div class="label-hover">
-                        <img src="images/icons/envelope.svg" alt="envelope" style="height: 2vh">
+                        <img src="assets/icons/envelope.svg" alt="envelope" style="height: 2vh">
                         <div>
                             akotu@pm.me
-                            <img id="cp" src="images/icons/copy.svg" alt="copy" style="height: 2vh"
+                            <img id="cp" src="assets/icons/copy.svg" alt="copy" style="height: 2vh"
                                  onclick="cpMail(event)">
                         </div>
                     </div>
@@ -187,7 +47,7 @@
             <a href="#">
                 <div id='gg' class="link" style='background-color: #4ba508' onclick="toggleChat()">
                     <div class="label">
-                        <img class="ico" src="images/icons/chat.svg" alt="chat">
+                        <img class="ico" src="assets/icons/chat.svg" alt="chat">
                     </div>
                     <div class="label-hover">
                         <img id='gg-status'
@@ -209,123 +69,6 @@
         </div>
     </div>
 </div>
-<script>
-    let greeting = document.getElementById("greeting");
-    let date = new Date();
-    greeting.src = greeting.src + "?" + date.getTime();
-
-    if (window.innerWidth < window.innerHeight) {
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-        document.querySelectorAll('link').forEach(function (link) {
-            link.style.width = '62vw';
-        });
-    }
-
-    window.addEventListener('resize', function () {
-        if (document.getElementsByClassName("chat-window")[0].hidden === true) {
-            if (window.innerWidth < window.innerHeight) {
-                document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-                document.querySelectorAll('.link').forEach(function (link) {
-                    link.style.width = '62vw';
-                });
-            } else {
-                document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-                document.querySelectorAll('.link').forEach(function (link) {
-                    link.style.width = '15vw';
-                });
-            }
-        }
-    });
-
-    window.addEventListener("load", function () {
-        let photo = document.getElementById("photo");
-        photo.style.display = "block";
-        photo.style.opacity = "0";
-        photo.style.scale = "0.9";
-
-        setTimeout(function () {
-            photo.style.transition = "opacity 2s ease-in-out, scale 1s ease-in-out";
-            photo.style.opacity = "1";
-            photo.style.scale = "1";
-        }, 800);
-
-        let contact = document.getElementById("contact");
-        contact.style.display = "flex";
-        contact.style.opacity = "0";
-        contact.style.scale = "0.7";
-        let saturation = 0;
-
-        setTimeout(function () {
-            contact.style.transition = "opacity 3s ease-in-out, scale 3s ease-in-out";
-            contact.style.opacity = "1";
-            contact.style.scale = "1";
-
-            function increaseSaturation() {
-                saturation += 0.01;
-                contact.style.filter = `saturate(${saturation})`;
-                if (saturation >= 1) {
-                    clearInterval(intervalId);
-                }
-            }
-
-            const intervalId = setInterval(increaseSaturation, 30);
-        }, 2300);
-    });
-
-    const elements = document.querySelectorAll('.link');
-    const container = document.querySelector('.links-container');
-    elements.forEach(element => {
-        element.addEventListener('mouseenter', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(-1vh)';
-            } else {
-                this.style.transform = 'translateX(-1vh)';
-            }
-        });
-        element.addEventListener('mouseleave', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(0)';
-            } else {
-                this.style.transform = 'translateX(0)';
-            }
-        });
-    });
-
-    let mail = 'akotu@pm.me';
-
-    function cpMail(e) {
-        navigator.clipboard.writeText(mail);
-        e.preventDefault();
-    }
-
-    document.getElementById("cp").addEventListener("mouseover", function () {
-        this.src = "images/icons/copy-highlighted.svg";
-    });
-    document.getElementById("cp").addEventListener("mouseout", function () {
-        this.src = "images/icons/copy.svg";
-    });
-
-    function toggleChat() {
-        if (navigator.userAgent.toLowerCase().match(/mobile/i) || navigator.userAgent.toLowerCase().match(/tablet/i) || navigator.userAgent.toLowerCase().match(/android/i) || navigator.userAgent.toLowerCase().match(/iphone/i) || navigator.userAgent.toLowerCase().match(/ipad/i)) {
-            window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
-        } else {
-            if (document.getElementsByClassName("chat-window")[0].hidden) {
-                document.getElementsByClassName("chat-window")[0].hidden = false;
-                document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-            } else {
-                closeChat();
-            }
-        }
-    }
-
-    function closeChat() {
-        document.getElementsByClassName("chat-window")[0].hidden = true;
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-    }
-
-    function stretchChat() {
-        window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
-    }
-</script>
+<script src="assets/scripts/scripts.js"></script>
 </body>
 </html>
