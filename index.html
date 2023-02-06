@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <title>Andrzej Kotulski</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
-    <script src="https://kit.fontawesome.com/5a1d036c68.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #000000 !important;
             font-family: Calibri, serif;
             display: flex;
             justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         .main-container {
@@ -45,25 +48,37 @@
             height: auto;
         }
 
-        .contact {
-            display: flex;
-        }
-
         #contact {
             display: none;
         }
 
-        .chatWindow {
-            flex: 1;
-            color: #000000 !important;
-            border-radius: 1vh;
-            background-color: #4ba508 !important;
-            margin: 1vh;
+        .links-container {
+            display: flex;
         }
 
-        #chat {
-            height: 90%;
-            border-radius: 1vh;
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5f5f5 !important;
+            border: 1vh solid #000000 !important;
+            border-radius: 2vh;
+            height: 7vh;
+            width: 15vw;
+            transition: transform 0.5s ease;
+        }
+
+        .ico {
+            height: 80%;
+        }
+
+        .chat-window {
+            background-color: #4ba508;
+            color: #000000 !important;
+            box-sizing: border-box;
+            border: 1vh solid #000000 !important;
+            border-radius: 2vh;
+            height: 100%;
         }
 
         .chat {
@@ -71,55 +86,48 @@
             margin: 1vh;
         }
 
-        .links-container {
-            flex: 1;
-            font-size: 6vh;
-            display: flex;
+        #chat-iframe {
+            height: 90%;
+            border-radius: 1vh;
         }
 
-        .link {
-            color: #f5f5f5 !important;
-            border: 1vh solid #000000 !important;
-            border-radius: 2vh;
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-            height: 7vh;
-            width: 62vw;
-            min-width: 9vh;
-            transition: transform 0.5s ease;
-        }
-
-        #ggStatus {
+        #gg-status {
             height: 4.5vh;
             width: auto;
         }
 
-        .fa-regular.fa-copy:hover {
-            color: #000000 !important;
-        }
-
-        .chatWindowButtons {
+        .chat-window-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             float: right;
             margin: 0.5vh 1vh 0.5vh 0;
             width: 2vh;
             height: 2vh;
-            color: #000000 !important;
+            color: #000000;
             cursor: pointer;
             font-size: 1vh;
         }
 
-        .chatWindowButtons:hover {
-            color: red;
+        .chat-window-buttons:hover {
+            color: #4ba508;
             cursor: pointer;
         }
 
         .label {
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 7vh;
+            width: 15vw;
         }
 
         .label-hover {
             display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2vh;
         }
 
         .link:hover .label {
@@ -127,25 +135,12 @@
         }
 
         .link:hover .label-hover {
-            display: inline-block;
+            display: flex;
         }
 
         @media (max-width: 820px) {
-            .links-container {
-                font-size: 4vh;
-            }
-
-            .link {
-                height: 6vh;
-                min-width: 6vh;
-            }
-
             .main-container {
                 width: 90vw;
-            }
-
-            #ggStatus {
-                height: 3.5vh;
             }
         }
 
@@ -157,87 +152,93 @@
         <div style="height: 28vh;"><img class="photo" id="photo" src="images/photo.jpg" alt="photo"></div>
         <img id="greeting" class="greeting" src="images/msg.svg" alt="greeting">
     </div>
-    <div id="contact">
-        <div class="contact">
-            <div class="links-container">
-                <a href="https://github.com/akotu235">
-                    <div class="link" style='background-color: #333'>
-                        <i class="fa-brands fa-github"></i>
-                    </div>
-                </a>
-                <a href="https://facebook.com/andrzej.kotulski.23">
-                    <div class="link" style='background-color: #4267B2'>
-                        <i class="fa-brands fa-facebook"></i>
-                    </div>
-                </a>
-                <a href="https://m.me/andrzej.kotulski.23">
-                    <div class="link" style='background-color: #0084ff'>
-                        <i class="fa-brands fa-facebook-messenger"></i>
-                    </div>
-                </a>
-                <a href="mailto:akotu@pm.me">
-                    <div class="link" style='background-color: #9370db'>
-                        <div class="label">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="label-hover">
-                            <div style='display: inline-block; font-size: 2vh'><i class="fa-solid fa-envelope"></i><br>akotu@pm.me<i
-                                    class="fa-regular fa-copy" style='font-size: 1.5vh; margin: 1vh;'
-                                    onclick="cpMail(event)"></i></div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div id='gg' class="link" style='background-color: #4ba508' onclick="toggleChat()">
-                        <div class="label">
-                            <i class="fa-solid fa-comments"></i>
-                        </div>
-                        <div class="label-hover">
-                            <img id='ggStatus'
-                                 src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget"
-                                 alt="gg status">
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div id="chatWindow" class='chatWindow' hidden>
-                <button class="chatWindowButtons" onclick="closeChat()">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <button class="chatWindowButtons" onclick="stretchChat()">
-                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-                </button>
-                <div class='chat'>
-                    <iframe id="chat"
-                            src="https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
-                            width="500">
-                    </iframe>
+    <div id="contact" class="contact">
+        <div class="links-container">
+            <a href="https://github.com/akotu235">
+                <div class="link" style='background-color: #333;'>
+                    <img class="ico" src="images/icons/github.svg" alt="github">
                 </div>
+            </a>
+            <a href="https://facebook.com/andrzej.kotulski.23">
+                <div class="link" style='background-color: #4267B2'>
+                    <img class="ico" src="images/icons/facebook.svg" alt="facebook">
+                </div>
+            </a>
+            <a href="https://m.me/andrzej.kotulski.23">
+                <div class="link" style='background-color: #0084ff'>
+                    <img class="ico" src="images/icons/messenger.svg" alt="messenger">
+                </div>
+            </a>
+            <a href="mailto:akotu@pm.me">
+                <div class="link" style='background-color: #9370db'>
+                    <div class="label">
+                        <img class="ico" src="images/icons/envelope.svg" alt="email">
+                    </div>
+                    <div class="label-hover">
+                        <img src="images/icons/envelope.svg" alt="envelope" style="height: 2vh">
+                        <div>
+                            akotu@pm.me
+                            <img id="cp" src="images/icons/copy.svg" alt="copy" style="height: 2vh"
+                                 onclick="cpMail(event)">
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id='gg' class="link" style='background-color: #4ba508' onclick="toggleChat()">
+                    <div class="label">
+                        <img class="ico" src="images/icons/chat.svg" alt="chat">
+                    </div>
+                    <div class="label-hover">
+                        <img id='gg-status'
+                             src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget"
+                             alt="gg status">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="chat-window" class='chat-window' hidden>
+            <button class="chat-window-buttons" onclick="closeChat()">🗙</button>
+            <button class="chat-window-buttons" onclick="stretchChat()">🗖</button>
+            <div class='chat'>
+                <iframe id="chat-iframe"
+                        src="https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+                        width="500">
+                </iframe>
             </div>
         </div>
     </div>
 </div>
 <script>
-    var greeting = document.getElementById("greeting");
-    var date = new Date();
+    let greeting = document.getElementById("greeting");
+    let date = new Date();
     greeting.src = greeting.src + "?" + date.getTime();
 
     if (window.innerWidth < window.innerHeight) {
         document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+        document.querySelectorAll('link').forEach(function (link) {
+            link.style.width = '62vw';
+        });
     }
 
     window.addEventListener('resize', function () {
-        if (chatWindow.hidden === true) {
+        if (document.getElementsByClassName("chat-window")[0].hidden === true) {
             if (window.innerWidth < window.innerHeight) {
                 document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+                document.querySelectorAll('.link').forEach(function (link) {
+                    link.style.width = '62vw';
+                });
             } else {
                 document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+                document.querySelectorAll('.link').forEach(function (link) {
+                    link.style.width = '15vw';
+                });
             }
         }
     });
 
     window.onload = function () {
-        var photo = document.getElementById("photo");
+        let photo = document.getElementById("photo");
         photo.style.display = "block";
         photo.style.opacity = "0";
 
@@ -246,8 +247,8 @@
             photo.style.opacity = "1";
         }, 1000);
 
-        var contact = document.getElementById("contact");
-        contact.style.display = "block";
+        let contact = document.getElementById("contact");
+        contact.style.display = "flex";
         contact.style.opacity = "0";
         contact.style.transform = "scale(0)";
 
@@ -277,21 +278,27 @@
         });
     });
 
-    var mail = 'akotu@pm.me';
+    let mail = 'akotu@pm.me';
 
     function cpMail(e) {
         navigator.clipboard.writeText(mail);
         e.preventDefault();
     }
 
+    document.getElementById("cp").addEventListener("mouseover", function () {
+        this.src = "images/icons/copy-highlighted.svg";
+    });
+    document.getElementById("cp").addEventListener("mouseout", function () {
+        this.src = "images/icons/copy.svg";
+    });
+
     function toggleChat() {
         if (navigator.userAgent.toLowerCase().match(/mobile/i) || navigator.userAgent.toLowerCase().match(/tablet/i) || navigator.userAgent.toLowerCase().match(/android/i) || navigator.userAgent.toLowerCase().match(/iphone/i) || navigator.userAgent.toLowerCase().match(/ipad/i)) {
             window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
         } else {
-            if (chatWindow.hidden) {
-                chatWindow.hidden = false;
+            if (document.getElementsByClassName("chat-window")[0].hidden) {
+                document.getElementsByClassName("chat-window")[0].hidden = false;
                 document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-                document.getElementsByClassName("links-container")[0].style.width = "10vw";
             } else {
                 closeChat();
             }
@@ -299,9 +306,8 @@
     }
 
     function closeChat() {
-        chatWindow.hidden = true;
+        document.getElementsByClassName("chat-window")[0].hidden = true;
         document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-        document.getElementsByClassName("links-container")[0].style.width = "62vw";
     }
 
     function stretchChat() {
