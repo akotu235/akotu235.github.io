@@ -237,7 +237,7 @@
         }
     });
 
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
         let photo = document.getElementById("photo");
         photo.style.display = "block";
         photo.style.opacity = "0";
@@ -253,11 +253,22 @@
         contact.style.display = "flex";
         contact.style.opacity = "0";
         contact.style.scale = "0.7";
+        let saturation = 0;
 
         setTimeout(function () {
-            contact.style.transition = "opacity 6s ease-in-out, scale 3s ease-in-out";
+            contact.style.transition = "opacity 3s ease-in-out, scale 3s ease-in-out";
             contact.style.opacity = "1";
             contact.style.scale = "1";
+
+            function increaseSaturation() {
+                saturation += 0.01;
+                contact.style.filter = `saturate(${saturation})`;
+                if (saturation >= 1) {
+                    clearInterval(intervalId);
+                }
+            }
+
+            const intervalId = setInterval(increaseSaturation, 30);
         }, 2300);
     });
 
