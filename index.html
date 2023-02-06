@@ -237,27 +237,29 @@
         }
     });
 
-    window.onload = function () {
+    window.addEventListener("load", function() {
         let photo = document.getElementById("photo");
         photo.style.display = "block";
         photo.style.opacity = "0";
+        photo.style.scale = "0.9";
 
         setTimeout(function () {
-            photo.style.transition = "opacity 2s ease-in-out";
+            photo.style.transition = "opacity 2s ease-in-out, scale 1s ease-in-out";
             photo.style.opacity = "1";
-        }, 1000);
+            photo.style.scale = "1";
+        }, 800);
 
         let contact = document.getElementById("contact");
         contact.style.display = "flex";
         contact.style.opacity = "0";
-        contact.style.transform = "scale(0)";
+        contact.style.scale = "0.7";
 
         setTimeout(function () {
-            contact.style.transition = "opacity 5s ease-in-out, transform 3s ease-in-out";
+            contact.style.transition = "opacity 6s ease-in-out, scale 3s ease-in-out";
             contact.style.opacity = "1";
-            contact.style.transform = "scale(1)";
-        }, 2000);
-    };
+            contact.style.scale = "1";
+        }, 2300);
+    });
 
     const elements = document.querySelectorAll('.link');
     const container = document.querySelector('.links-container');
