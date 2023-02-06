@@ -67,6 +67,8 @@ let mail = 'akotu@pm.me';
 function cpMail(e) {
     navigator.clipboard.writeText(mail);
     e.preventDefault();
+    let image = document.getElementById("cp");
+    image.src = "assets/icons/copy-success-highlighted.svg";
 }
 
 document.getElementById("cp").addEventListener("mouseover", function () {
