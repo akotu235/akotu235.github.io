@@ -2,27 +2,10 @@ let greeting = document.getElementById("greeting");
 let date = new Date();
 greeting.src = greeting.src + "?" + date.getTime();
 
-if (window.innerWidth < window.innerHeight) {
-    document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-    document.querySelectorAll('link').forEach(function (link) {
-        link.style.width = '62vw';
-    });
-}
+setScreenStyle();
 
 window.addEventListener('resize', function () {
-    if (document.getElementsByClassName("chat-window")[0].hidden === true) {
-        if (window.innerWidth < window.innerHeight) {
-            document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-            document.querySelectorAll('.link').forEach(function (link) {
-                link.style.width = '62vw';
-            });
-        } else {
-            document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-            document.querySelectorAll('.link').forEach(function (link) {
-                link.style.width = '15vw';
-            });
-        }
-    }
+    setScreenStyle();
 });
 
 window.addEventListener("load", function () {
@@ -94,16 +77,20 @@ document.getElementById("cp").addEventListener("mouseout", function () {
 });
 
 function toggleChat() {
-    if (navigator.userAgent.toLowerCase().match(/mobile/i) || navigator.userAgent.toLowerCase().match(/tablet/i) || navigator.userAgent.toLowerCase().match(/android/i) || navigator.userAgent.toLowerCase().match(/iphone/i) || navigator.userAgent.toLowerCase().match(/ipad/i)) {
+    if (window.innerWidth < window.innerHeight) {
         window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
     } else {
         if (document.getElementsByClassName("chat-window")[0].hidden) {
-            document.getElementsByClassName("chat-window")[0].hidden = false;
-            document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+            openChat();
         } else {
             closeChat();
         }
     }
+}
+
+function openChat() {
+    document.getElementsByClassName("chat-window")[0].hidden = false;
+    document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
 }
 
 function closeChat() {
@@ -113,4 +100,29 @@ function closeChat() {
 
 function stretchChat() {
     window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+}
+
+function setLandscapeScreenStyle() {
+    document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+    document.getElementsByClassName("main-container")[0].style.width = "90vw";
+    document.querySelectorAll('.link').forEach(function (link) {
+        link.style.width = '62vw';
+    });
+}
+
+function setVerticalScreenStyle() {
+    document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+    document.getElementsByClassName("main-container")[0].style.width = "62vw";
+    document.querySelectorAll('.link').forEach(function (link) {
+        link.style.width = '15vw';
+    });
+    closeChat();
+}
+
+function setScreenStyle() {
+    if (window.innerWidth < window.innerHeight) {
+        setLandscapeScreenStyle();
+    } else {
+        setVerticalScreenStyle();
+    }
 }
