@@ -60,6 +60,15 @@ function runAnimation() {
 
         const intervalId = setInterval(increaseSaturation, 30);
     }, 3000);
+
+    let footer = document.getElementById("footer");
+    footer.style.display = "flex";
+    footer.style.opacity = "0";
+
+    setTimeout(function () {
+        footer.style.transition = "opacity 1s ease-in-out";
+        footer.style.opacity = "1";
+    }, 5000);
 }
 
 const elements = document.querySelectorAll('.link');
