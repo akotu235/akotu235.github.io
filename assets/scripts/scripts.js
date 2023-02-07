@@ -4,6 +4,12 @@ greeting.src = greeting.src + "?" + date.getTime();
 
 setScreenStyle();
 
+window.addEventListener("load", function () {
+    document.querySelector("#content").style.display = "flex";
+    document.querySelector("#loader").style.display = "none";
+    runAnimation();
+});
+
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 document.addEventListener('selectstart', event => event.preventDefault());
@@ -16,7 +22,7 @@ window.addEventListener('resize', function () {
     setScreenStyle();
 });
 
-window.addEventListener("load", function () {
+function runAnimation() {
     let photo = document.getElementById("photo");
     photo.style.display = "block";
     photo.style.opacity = "0";
@@ -26,7 +32,7 @@ window.addEventListener("load", function () {
         photo.style.transition = "opacity 2s ease-in-out, scale 1s ease-in-out";
         photo.style.opacity = "1";
         photo.style.scale = "1";
-    }, 800);
+    }, 1300);
 
     let contact = document.getElementById("contact");
     contact.style.display = "flex";
@@ -48,8 +54,8 @@ window.addEventListener("load", function () {
         }
 
         const intervalId = setInterval(increaseSaturation, 30);
-    }, 2300);
-});
+    }, 3000);
+}
 
 const elements = document.querySelectorAll('.link');
 const container = document.querySelector('.links-container');
