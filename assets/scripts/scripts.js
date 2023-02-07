@@ -4,6 +4,10 @@ greeting.src = greeting.src + "?" + date.getTime();
 
 setScreenStyle();
 
+document.addEventListener("dragstart", function (event) {
+    event.preventDefault();
+});
+
 window.addEventListener('resize', function () {
     setScreenStyle();
 });
