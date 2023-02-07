@@ -1,0 +1,11 @@
+# Idea and Eclipse
+*.iml
+*.ipr
+*.iws
+.idea/
+*.idea
+
+# Archives
+*.zip
+*.rar
+*.tgz
