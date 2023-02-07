@@ -8,6 +8,8 @@ document.addEventListener("dragstart", function (event) {
     event.preventDefault();
 });
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 window.addEventListener('resize', function () {
     setScreenStyle();
 });
