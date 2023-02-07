@@ -17,7 +17,7 @@
     <text font-family="&quot;FiraCode&quot;, monospace" fill="#FFFFFF" font-size="30" dominant-baseline="middle"
           x="50%" text-anchor="middle">
         <textPath xlink:href="#path0">
-            Hi, I'm Andrzej
+            Cześć, jestem Andrzej
         </textPath>
     </text>
     <path id="path1">
@@ -27,7 +27,7 @@
     <text font-family="&quot;FiraCode&quot;, monospace" fill="#FFFFFF" font-size="30" dominant-baseline="middle"
           x="50%" text-anchor="middle">
         <textPath xlink:href="#path1">
-            Feel free to contact me wherever is comfortable for you
+            Napisz do mnie w sposób, który najbardziej Ci odpowiada
         </textPath>
     </text>
 </svg>

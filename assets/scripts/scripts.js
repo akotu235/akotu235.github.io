@@ -1,6 +1,11 @@
 let greeting = document.getElementById("greeting");
 let date = new Date();
-greeting.src = greeting.src + "?" + date.getTime();
+let userLang = navigator.language
+if (userLang === "pl-PL" || userLang === "pl") {
+    greeting.src = "assets/images/msg_pl.svg" + "?" + date.getTime();
+} else {
+    greeting.src = "assets/images/msg.svg" + "?" + date.getTime();
+}
 
 setScreenStyle();
 
@@ -92,7 +97,17 @@ document.getElementById("cp").addEventListener("mouseout", function () {
     this.src = "assets/icons/copy.svg";
 });
 
+document.getElementById("chat-iframe").src = getChatSrc();
+
 var chatIsOpen = false;
+
+function getChatSrc() {
+    if (userLang === "pl-PL" || userLang === "pl") {
+        return "https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DCze%C5%9B%C4%87%2C%20w%20czym%20mog%C4%99%20pom%C3%B3c%3F%7Cmsg_offline%3DZostaw%20wiadomo%C5%9B%C4%87%20i%20informacje%20kontaktowe%2C%20a%20odpowiem%20na%20Twoje%20pytanie.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+    } else {
+        return "https://widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+    }
+}
 
 function toggleChat() {
     if (window.innerWidth < window.innerHeight || window.innerHeight < 600) {
@@ -119,7 +134,7 @@ function closeChat() {
 }
 
 function stretchChat() {
-    window.location = "https:////widget.gg.pl/widget/38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0#uin%3D73836695%7Cmsg_online%3DHello%2C%20how%20can%20I%20help%3F%7Cmsg_offline%3DLeave%20a%20message%20and%20contact%20information%20and%20I%20will%20answer%20your%20question.%7Chash%3D38fe4ce527f071b3b70ecd72dadbb984438e54ac747479461c9331e371a4c2f0"
+    window.location = getChatSrc();
 }
 
 function setLandscapeScreenStyle() {
