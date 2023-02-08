@@ -102,6 +102,16 @@ footer p {
     height: 80%;
 }
 
+.small-ico {
+    height: 2vh;
+    margin: 0 0.3vw;
+}
+
+.mail-button {
+    display: flex;
+    flex-direction: row;
+}
+
 .chat-window {
     background-color: #4ba508;
     color: #000000 !important;

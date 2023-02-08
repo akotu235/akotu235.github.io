@@ -13,6 +13,7 @@ window.addEventListener("load", function () {
     document.querySelector("#content").style.display = "flex";
     document.querySelector("#loader").style.display = "none";
     runAnimation();
+    setLinks();
 });
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -91,12 +92,42 @@ elements.forEach(element => {
 });
 
 let mail = 'akotu@pm.me';
+let github = 'https://github.com/akotu235'
+let facebook = 'https://facebook.com/andrzej.kotulski.23'
+let messenger = 'https://m.me/andrzej.kotulski.23'
+let projectPage = 'https://github.com/akotu235/akotu235.github.io'
+let githubPages = 'https://pages.github.com'
+
+function setLinks() {
+    document.getElementById("github").href = github;
+    document.getElementById("github").target = "_blank";
+    document.getElementById("github").rel = "noreferrer";
+
+    document.getElementById("facebook").href = facebook;
+    document.getElementById("facebook").target = "_blank";
+    document.getElementById("facebook").rel = "noreferrer";
+
+    document.getElementById("messenger").href = messenger;
+    document.getElementById("messenger").target = "_blank";
+    document.getElementById("messenger").rel = "noreferrer";
+
+    document.getElementById("mailto").href = "mailto:" + mail;
+    document.getElementById("mail").innerHTML = mail;
+
+    document.getElementById("project-page").href = projectPage;
+    document.getElementById("project-page").target = "_blank";
+    document.getElementById("project-page").rel = "noreferrer";
+
+    document.getElementById("github-pages").href = githubPages;
+    document.getElementById("github-pages").target = "_blank";
+    document.getElementById("github-pages").rel = "noreferrer";
+}
 
 function cpMail(e) {
     navigator.clipboard.writeText(mail);
     e.preventDefault();
-    let image = document.getElementById("cp");
-    image.src = "assets/icons/copy-success-highlighted.svg";
+    let ico = document.getElementById("cp");
+    ico.src = "assets/icons/copy-success-highlighted.svg";
 }
 
 document.getElementById("cp").addEventListener("mouseover", function () {
