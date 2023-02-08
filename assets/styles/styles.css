@@ -34,12 +34,12 @@ footer p {
 }
 
 .highlight-link {
-    color: #483d8b;
+    color: #7b68ee;
     margin: 0.2vh;
 }
 
 .highlight-link:hover {
-    color: #7b68ee;
+    color: #ab9ff4;
 }
 
 #loader {
