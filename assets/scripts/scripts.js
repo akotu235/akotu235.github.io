@@ -161,7 +161,7 @@ function setLandscapeScreenStyle() {
 function setVerticalScreenStyle() {
     closeChat();
     document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-    document.getElementsByClassName("main-container")[0].style.width = "90vw";
+    document.getElementsByClassName("main-container")[0].style.width = "98vw";
     document.querySelectorAll('.link').forEach(function (link) {
         link.style.width = '62vw';
     });

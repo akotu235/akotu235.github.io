@@ -30,12 +30,12 @@ footer {
 }
 
 footer p {
-    margin: 3px;
+    margin: 0.5vh;
 }
 
 .highlight-link {
     color: #483d8b;
-    margin: 2px;
+    margin: 0.2vh;
 }
 
 .highlight-link:hover {
@@ -48,7 +48,7 @@ footer p {
 }
 
 .main-container {
-    margin: 4vh;
+    margin: 4vh 2vw;
     display: none;
     justify-content: center;
     flex-direction: column;
