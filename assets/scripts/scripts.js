@@ -170,11 +170,16 @@ function openChat() {
 function closeChat() {
     chatIsOpen = false;
     document.getElementsByClassName("chat-window")[0].hidden = true;
-    document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+    if (window.innerWidth < window.innerHeight) {
+        document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+    } else {
+        document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
+    }
 }
 
 function stretchChat() {
-    window.location = getChatSrc();
+    window.open(getChatSrc(), '_blank');
+    closeChat();
 }
 
 function setLandscapeScreenStyle() {
