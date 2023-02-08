@@ -78,14 +78,14 @@ elements.forEach(element => {
         if (window.getComputedStyle(container).flexDirection === 'row') {
             this.style.transform = 'translateY(-1vh)';
         } else {
-            this.style.transform = 'translateX(-1vh)';
+            this.style.transform = 'scale(1.05)';
         }
     });
     element.addEventListener('mouseleave', function () {
         if (window.getComputedStyle(container).flexDirection === 'row') {
             this.style.transform = 'translateY(0)';
         } else {
-            this.style.transform = 'translateX(0)';
+            this.style.transform = 'scale(1)';
         }
     });
 });
