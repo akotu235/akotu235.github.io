@@ -2,6 +2,7 @@ let greeting = document.getElementById("greeting");
 let date = new Date();
 let userLang = navigator.language
 if (userLang === "pl-PL" || userLang === "pl") {
+    document.querySelector("html").setAttribute("lang", "pl");
     greeting.src = "assets/images/msg_pl.svg" + "?" + date.getTime();
 } else {
     greeting.src = "assets/images/msg.svg" + "?" + date.getTime();
