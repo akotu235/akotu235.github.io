@@ -73,9 +73,9 @@ function runAnimation() {
     }, 5000);
 }
 
-const elements = document.querySelectorAll('.link');
+const links = document.querySelectorAll('.link');
 const container = document.querySelector('.links-container');
-elements.forEach(element => {
+links.forEach(element => {
     element.addEventListener('mouseenter', function () {
         if (window.getComputedStyle(container).flexDirection === 'row') {
             this.style.transform = 'translateY(-1vh)';
@@ -92,26 +92,30 @@ elements.forEach(element => {
     });
 });
 
+const smallLinks = document.querySelectorAll('.small-link');
+smallLinks.forEach(element => {
+    element.addEventListener('mouseenter', function () {
+        this.style.transform = 'scale(1.2)';
+    });
+    element.addEventListener('mouseleave', function () {
+        this.style.transform = 'scale(1)';
+    });
+});
+
 let mail = 'akotu@pm.me';
 let github = 'https://github.com/akotu235'
-let facebook = 'https://facebook.com/andrzej.kotulski.23'
 let messenger = 'https://m.me/andrzej.kotulski.23'
 let projectPage = 'https://github.com/akotu235/akotu235.github.io'
 let githubPages = 'https://pages.github.com'
 
+document.getElementById("github").onclick = function () {
+    window.open(github, "_blank", "", "", "rel=noreferrer");
+};
+document.getElementById("messenger").onclick = function () {
+    window.open(messenger, "_blank", "", "", "rel=noreferrer");
+};
+
 function setLinks() {
-    document.getElementById("github").href = github;
-    document.getElementById("github").target = "_blank";
-    document.getElementById("github").rel = "noreferrer";
-
-    document.getElementById("facebook").href = facebook;
-    document.getElementById("facebook").target = "_blank";
-    document.getElementById("facebook").rel = "noreferrer";
-
-    document.getElementById("messenger").href = messenger;
-    document.getElementById("messenger").target = "_blank";
-    document.getElementById("messenger").rel = "noreferrer";
-
     document.getElementById("mailto").href = "mailto:" + mail;
     document.getElementById("mail").innerHTML = mail;
 
@@ -133,6 +137,7 @@ function cpMail(e) {
 
 document.getElementById("cp").addEventListener("mouseover", function () {
     this.src = "assets/icons/copy-highlighted.svg";
+    this.style.cursor = "copy";
 });
 document.getElementById("cp").addEventListener("mouseout", function () {
     this.src = "assets/icons/copy.svg";
@@ -140,7 +145,9 @@ document.getElementById("cp").addEventListener("mouseout", function () {
 
 document.getElementById("chat-iframe").src = getChatSrc();
 
-var chatIsOpen = false;
+function chatIsHidden() {
+    return document.getElementsByClassName("chat-window")[0].hidden;
+}
 
 function getChatSrc() {
     if (userLang === "pl-PL" || userLang === "pl") {
@@ -154,7 +161,7 @@ function toggleChat() {
     if (window.innerWidth < window.innerHeight || window.innerHeight < 600) {
         stretchChat();
     } else {
-        if (document.getElementsByClassName("chat-window")[0].hidden) {
+        if (chatIsHidden()) {
             openChat();
         } else {
             closeChat();
@@ -163,19 +170,13 @@ function toggleChat() {
 }
 
 function openChat() {
-    chatIsOpen = true;
     document.getElementsByClassName("chat-window")[0].hidden = false;
-    document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
+    setScreenStyle();
 }
 
 function closeChat() {
-    chatIsOpen = false;
     document.getElementsByClassName("chat-window")[0].hidden = true;
-    if (window.innerWidth < window.innerHeight) {
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-    } else {
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-    }
+    setScreenStyle();
 }
 
 function stretchChat() {
@@ -184,24 +185,30 @@ function stretchChat() {
 }
 
 function setLandscapeScreenStyle() {
-    if (chatIsOpen) {
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-    } else {
-        document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
-    }
-    document.getElementsByClassName("main-container")[0].style.width = "62vw";
+    document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
     document.querySelectorAll('.link').forEach(function (link) {
-        link.style.width = '15vw';
+        link.style.width = '27vh';
+        link.style.height = '5vh';
+        link.style.margin = "1vh";
     });
+    const gg = document.getElementById("gg");
+    if (chatIsHidden()) {
+        gg.style.display = "flex";
+    } else {
+        gg.style.display = "none";
+    }
 }
 
 function setVerticalScreenStyle() {
-    closeChat();
     document.getElementsByClassName("links-container")[0].style.flexDirection = "column";
-    document.getElementsByClassName("main-container")[0].style.width = "98vw";
+    document.getElementsByClassName("chat-window")[0].hidden = true;
     document.querySelectorAll('.link').forEach(function (link) {
         link.style.width = '62vw';
+        link.style.height = '8vh';
+        link.style.margin = "2vh";
     });
+    const gg = document.getElementById("gg");
+    gg.style.display = "flex";
 }
 
 function setScreenStyle() {

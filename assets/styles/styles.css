@@ -6,11 +6,12 @@
 }
 
 body {
-    background-color: #000000 !important;
+    background-color: #000000;
     font-family: Calibri, serif;
     display: flex;
     justify-content: center;
     color: #f5f5f5;
+    margin: 0;
 }
 
 a {
@@ -47,11 +48,10 @@ footer p {
 
 #loader {
     display: flex;
-    margin: 36vh;
+    margin: 32vh;
 }
 
 .main-container {
-    margin: 4vh 2vw;
     display: none;
     justify-content: center;
     flex-direction: column;
@@ -59,30 +59,60 @@ footer p {
 }
 
 .header {
+    height: 38vh;
+    width: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
 
-.photo {
-    border-radius: 100%;
-    height: 26vh;
-    margin: 1vh;
-}
-
 #photo {
     display: none;
+    border-radius: 100%;
+    height: 17vh;
+    width: 17vh;
 }
 
-.greeting {
-    margin: 2vh 0;
+.img-container {
+    position: relative;
+    margin-top: 10.5vh;
+}
+
+.img-container img {
     width: 100%;
     height: auto;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    cursor: crosshair;
+    border-radius: 100%;
+
+}
+
+.img-container:hover .overlay {
+    opacity: 0;
+}
+
+.greeting {
+    margin: 1vh;
+    height: 9vh;
+    max-width: 95vw;
+}
+
 #contact {
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .links-container {
@@ -93,21 +123,32 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f5f5f5 !important;
-    border-radius: 2vh;
-    margin: 1vh;
-    height: 7vh;
-    width: 62vw;
+    color: #f5f5f5;
+    border-radius: 1.6vh;
+    margin: 1.6vh;
     transition: transform 0.5s ease;
     cursor: pointer;
 }
 
+.small-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    border-radius: 100%;
+    margin: 1.6vh;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    height: 5vh;
+    width: 5vh;
+}
+
 .ico {
-    height: 80%;
+    height: 4vh;
 }
 
 .small-ico {
-    height: 2vh;
+    height: 2.3vh;
     margin: 0 0.3vw;
 }
 
@@ -116,17 +157,27 @@ footer p {
     flex-direction: row;
 }
 
+#mail {
+    color: white;
+}
+
 .chat-window {
-    background-color: #4ba508;
-    color: #000000 !important;
-    border-radius: 2vh;
-    margin: 1vh;
-    height: 43vh;
+    background-color: #00000000;
+    color: #000000;
+    border: 1px solid #0084ff;
+    box-shadow: 1px 1px 1px #0084ff;
+    border-radius: 1.6vh;
+    margin: 2.7vh;
+    height: 46vh;
 }
 
 .chat {
     height: 100%;
     margin: 1vh;
+}
+
+#chat-button {
+    cursor: default;
 }
 
 #chat-iframe {
@@ -135,7 +186,7 @@ footer p {
 }
 
 #gg-status {
-    height: 4.5vh;
+    height: 3vh;
     width: auto;
 }
 
@@ -153,24 +204,14 @@ footer p {
 }
 
 .chat-window-buttons:hover {
-    color: #4ba508;
+    color: #0084ff;
     cursor: pointer;
-}
-
-.static-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 7vh;
-    width: 15vw;
 }
 
 .label {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 7vh;
-    width: 15vw;
 }
 
 .label-hover {
@@ -181,6 +222,12 @@ footer p {
     font-size: 2vh;
 }
 
+.button-hover {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .link:hover .label {
     display: none;
 }
@@ -189,10 +236,28 @@ footer p {
     display: flex;
 }
 
-.copy:hover {
-    cursor: copy;
+.link:hover .button-hover {
+    display: flex;
 }
 
-.photo:hover {
-    cursor: crosshair;
+#chat-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chat-status {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vh;
+}
+
+.small-link:hover #chat-ico {
+    display: none;
+}
+
+.small-link:hover #chat-status {
+    display: flex;
 }
