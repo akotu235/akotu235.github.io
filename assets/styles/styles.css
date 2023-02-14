@@ -130,7 +130,7 @@ footer p {
     cursor: pointer;
 }
 
-.small-link{
+.chat-link{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,6 +159,10 @@ footer p {
 
 #mail {
     color: white;
+}
+
+#mailto {
+    cursor: default;
 }
 
 .chat-window {
@@ -222,22 +226,10 @@ footer p {
     font-size: 2vh;
 }
 
-.button-hover {
-    display: none;
+.chat-links-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.link:hover .label {
-    display: none;
-}
-
-.link:hover .label-hover {
-    display: flex;
-}
-
-.link:hover .button-hover {
-    display: flex;
 }
 
 #chat-ico {
@@ -251,13 +243,12 @@ footer p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2vh;
 }
 
-.small-link:hover #chat-ico {
+.chat-link:hover #chat-ico {
     display: none;
 }
 
-.small-link:hover #chat-status {
+.chat-link:hover #chat-status {
     display: flex;
 }

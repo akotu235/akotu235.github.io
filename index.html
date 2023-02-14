@@ -6,7 +6,7 @@
     <meta name="keywords" content="akotu, akotu235, Andrzej Kotulski, personal webpage">
     <meta name="author" content="Andrzej Kotulski">
     <meta name="robots" content="index, follow">
-    <meta name="date" content="2023-02-14">
+    <meta name="date" content="2023-02-16">
     <meta name="theme-color" content="#000000">
     <meta property="og:title" content="Andrzej Kotulski">
     <meta property="og:type" content="website">
@@ -34,13 +34,18 @@
     <div id="contact">
         <div class="links-container">
             <div id="github" class="link" style="background-color: #333;">
-                <img class="ico" src="assets/icons/github.svg" alt="github">
-            </div>
-            <div class="link" style="background-color: #9370db">
                 <div class="label">
-                    <img class="ico" src="assets/icons/envelope.svg" alt="email">
+                    <img class="ico" src="assets/icons/github.svg" alt="github">
                 </div>
-                <a id="mailto">
+                <div class="label-hover">
+                    <img class="ico" src="assets/icons/github.svg" alt="github">
+                </div>
+            </div>
+            <a id="mailto">
+                <div class="link" style="background-color: #9370db">
+                    <div class="label">
+                        <img class="ico" src="assets/icons/envelope.svg" alt="email">
+                    </div>
                     <div class="label-hover">
                         <img class="small-ico" src="assets/icons/envelope.svg" alt="envelope">
                         <div class="mail-button">
@@ -49,26 +54,28 @@
                                  onclick="cpMail(event)">
                         </div>
                     </div>
-                </a>
-            </div>
-            <div id="chat-button" class="link" style="background-color: #30ba8f">
-                <div class="label">
+                </div>
+            </a>
+            <div id="chat-button" class="link" style="background-color: #30ba8f; color: #30ba8f">
+                <div class="label" id="button-ico">
                     <img class="ico" src="assets/icons/chat.svg" alt="chat">
                 </div>
-                <div class="button-hover" id="button-label">
-                    <div id="messenger" class="small-link" style="color: #0084ff;">
-                        <img class="ico" src="assets/icons/messenger.svg" alt="messenger">
-                    </div>
-                    <div id="telegram" class="small-link" style="color: #27A7E7;">
-                        <img class="ico" src="assets/icons/telegram.svg" alt="telegram">
-                    </div>
-                    <div id="gg" class="small-link" onclick="toggleChat()" style="color: #ff7f50;">
-                        <div id="chat-ico">
-                            <img class="ico" src="assets/icons/chat.svg" alt="chat">
+                <div class="label-hover" id="button-label">
+                    <div class="chat-links-container">
+                        <div id="messenger" class="chat-link" style="color: #0084ff;">
+                            <img class="ico" src="assets/icons/messenger.svg" alt="messenger">
                         </div>
-                        <div id="chat-status">
-                            <img id="gg-status" alt="gg status"
-                                 src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget">
+                        <div id="telegram" class="chat-link" style="color: #27A7E7;">
+                            <img class="ico" src="assets/icons/telegram.svg" alt="telegram">
+                        </div>
+                        <div id="gg" class="chat-link" onclick="toggleChat()" style="color: #ff7f50;">
+                            <div id="chat-ico">
+                                <img class="ico" src="assets/icons/chat.svg" alt="chat">
+                            </div>
+                            <div id="chat-status">
+                                <img id="gg-status" alt="gg status"
+                                     src="https://status.gadu-gadu.pl/users/status.asp?id=73836695&amp;styl=4&amp;source=widget">
+                            </div>
                         </div>
                     </div>
                 </div>

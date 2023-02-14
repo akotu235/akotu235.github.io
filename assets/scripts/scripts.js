@@ -10,6 +10,10 @@ if (userLang === "pl-PL" || userLang === "pl") {
 
 setScreenStyle();
 
+const isMobileDevice = /Mobi|Android|iPhone|iPod|iPad|Windows Phone|Tablet|BlackBerry/i.test(navigator.userAgent);
+if (isMobileDevice) {
+    openLinkButtons();
+}
 window.addEventListener("load", function () {
     document.querySelector("#content").style.display = "flex";
     document.querySelector("#loader").style.display = "none";
@@ -76,31 +80,56 @@ function runAnimation() {
 const links = document.querySelectorAll('.link');
 const container = document.querySelector('.links-container');
 links.forEach(element => {
-    element.addEventListener('mouseenter', function () {
-        if (window.getComputedStyle(container).flexDirection === 'row') {
-            this.style.transform = 'translateY(-1vh)';
-        } else {
-            this.style.transform = 'scale(1.05)';
-        }
-    });
-    element.addEventListener('mouseleave', function () {
-        if (window.getComputedStyle(container).flexDirection === 'row') {
-            this.style.transform = 'translateY(0)';
-        } else {
-            this.style.transform = 'scale(1)';
-        }
-    });
+    if (!isMobileDevice) {
+        element.addEventListener('mouseenter', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(-1vh)';
+            } else {
+                this.style.transform = 'scale(1.05)';
+            }
+            const label = element.querySelector('.label');
+            const labelHover = element.querySelector('.label-hover');
+            label.style.display = 'none';
+            labelHover.style.display = 'flex';
+
+        });
+        element.addEventListener('mouseleave', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'scale(1)';
+            }
+            const label = element.querySelector('.label');
+            const labelHover = element.querySelector('.label-hover');
+            labelHover.style.display = 'none';
+            label.style.display = 'flex';
+        });
+    }
 });
 
-const smallLinks = document.querySelectorAll('.small-link');
-smallLinks.forEach(element => {
+function openLinkButtons() {
+    const links = document.querySelectorAll('.link');
+    links.forEach(link => {
+        link.querySelector('.label').style.display = 'none';
+        link.querySelector('.label-hover').style.display = 'flex';
+    });
+}
+
+const chatLinks = document.querySelectorAll('.chat-link');
+const chatButton = document.getElementById('chat-button');
+chatLinks.forEach(element => {
     element.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.2)';
-        document.getElementById('chat-button').style.backgroundColor = this.style.color;
+        chatButton.style.backgroundColor = this.style.color;
     });
     element.addEventListener('mouseleave', function () {
         this.style.transform = 'scale(1)';
-        document.getElementById('chat-button').style.backgroundColor = '#30ba8f';
+        chatButton.style.backgroundColor = chatButton.style.color;
+    });
+    element.addEventListener('touchend', function () {
+        this.style.transform = 'scale(1.2)';
+        chatButton.style.backgroundColor = this.style.color;
+        element.onclick();
     });
 });
 
@@ -190,7 +219,7 @@ function stretchChat() {
     closeChat();
 }
 
-function setLandscapeScreenStyle() {
+function setHorizontalScreenStyle() {
     document.getElementsByClassName("links-container")[0].style.flexDirection = "row";
     document.querySelectorAll('.link').forEach(function (link) {
         link.style.width = '27vh';
@@ -221,6 +250,6 @@ function setScreenStyle() {
     if (window.innerWidth < window.innerHeight) {
         setVerticalScreenStyle();
     } else {
-        setLandscapeScreenStyle();
+        setHorizontalScreenStyle();
     }
 }
