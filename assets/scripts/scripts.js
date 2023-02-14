@@ -96,13 +96,13 @@ const smallLinks = document.querySelectorAll('.small-link');
 smallLinks.forEach(element => {
     element.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.2)';
+        document.getElementById('chat-button').style.backgroundColor = this.style.color;
     });
     element.addEventListener('mouseleave', function () {
         this.style.transform = 'scale(1)';
+        document.getElementById('chat-button').style.backgroundColor = '#30ba8f';
     });
 });
-
-document.getElementById("chat-button").onclick = function () {};
 
 let mail = 'akotu@pm.me';
 let github = 'https://github.com/akotu235'
@@ -112,13 +112,13 @@ let projectPage = 'https://github.com/akotu235/akotu235.github.io'
 let githubPages = 'https://pages.github.com'
 
 document.getElementById("github").onclick = function () {
-    window.open(github, "_blank", "", "", "rel=noreferrer");
+    window.open(github, "_blank");
 };
 document.getElementById("messenger").onclick = function () {
-    window.open(messenger, "_blank", "", "", "rel=noreferrer");
+    window.open(messenger, "_blank");
 };
 document.getElementById("telegram").onclick = function () {
-    window.open(telegram, "_blank", "", "", "rel=noreferrer");
+    window.open(telegram, "_blank");
 };
 
 function setLinks() {
@@ -149,11 +149,11 @@ document.getElementById("cp").addEventListener("mouseout", function () {
     this.src = "assets/icons/copy.svg";
 });
 
-document.getElementById("chat-iframe").src = getChatSrc();
-
 function chatIsHidden() {
     return document.getElementsByClassName("chat-window")[0].hidden;
 }
+
+document.getElementById("chat-iframe").src = getChatSrc();
 
 function getChatSrc() {
     if (userLang === "pl-PL" || userLang === "pl") {

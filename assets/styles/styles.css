@@ -164,8 +164,8 @@ footer p {
 .chat-window {
     background-color: #00000000;
     color: #000000;
-    border: 1px solid #0084ff;
-    box-shadow: 1px 1px 1px #0084ff;
+    border: 1px solid #ff7f50;
+    box-shadow: 1px 1px 1px #ff7f50;
     border-radius: 1.6vh;
     margin: 2.7vh;
     height: 46vh;
@@ -204,7 +204,7 @@ footer p {
 }
 
 .chat-window-buttons:hover {
-    color: #0084ff;
+    color: #ff7f50;
     cursor: pointer;
 }
 
