@@ -102,9 +102,12 @@ smallLinks.forEach(element => {
     });
 });
 
+document.getElementById("chat-button").onclick = function () {};
+
 let mail = 'akotu@pm.me';
 let github = 'https://github.com/akotu235'
 let messenger = 'https://m.me/andrzej.kotulski.23'
+let telegram = 'https://t.me/andrzej235'
 let projectPage = 'https://github.com/akotu235/akotu235.github.io'
 let githubPages = 'https://pages.github.com'
 
@@ -113,6 +116,9 @@ document.getElementById("github").onclick = function () {
 };
 document.getElementById("messenger").onclick = function () {
     window.open(messenger, "_blank", "", "", "rel=noreferrer");
+};
+document.getElementById("telegram").onclick = function () {
+    window.open(telegram, "_blank", "", "", "rel=noreferrer");
 };
 
 function setLinks() {
