@@ -134,6 +134,7 @@ chatLinks.forEach(element => {
 
 let mail = 'akotu@pm.me';
 let github = 'https://github.com/akotu235'
+let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
 let messenger = 'https://m.me/andrzej.kotulski.23'
 let telegram = 'https://t.me/andrzej235'
 let projectPage = 'https://github.com/akotu235/akotu235.github.io'
@@ -141,6 +142,9 @@ let githubPages = 'https://pages.github.com'
 
 document.getElementById("github").onclick = function () {
     window.open(github, "_blank");
+};
+document.getElementById("linkedin").onclick = function () {
+    window.open(linkedin, "_blank");
 };
 document.getElementById("messenger").onclick = function () {
     window.open(messenger, "_blank");
