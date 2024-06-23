@@ -132,7 +132,7 @@ chatLinks.forEach(element => {
     });
 });
 
-let mail = 'akotu@pm.me';
+let mail = 'akotu@protonmail.com';
 let github = 'https://github.com/akotu235'
 let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
 let messenger = 'https://m.me/andrzej.kotulski.23'
