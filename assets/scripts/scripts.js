@@ -137,6 +137,7 @@ let github = 'https://github.com/akotu235'
 let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
 let messenger = 'https://m.me/andrzej.kotulski.23'
 let telegram = 'https://t.me/andrzej235'
+let messageMe = 'https://pipefish-ruling-mink.ngrok-free.app/message'
 let projectPage = 'https://github.com/akotu235/akotu235.github.io'
 let githubPages = 'https://pages.github.com'
 
@@ -151,6 +152,9 @@ document.getElementById("messenger").onclick = function () {
 };
 document.getElementById("telegram").onclick = function () {
     window.open(telegram, "_blank");
+};
+document.getElementById("messageMe").onclick = function () {
+    window.open(messageMe, "_blank");
 };
 
 function setLinks() {
