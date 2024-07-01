@@ -8,6 +8,8 @@ if (userLang === "pl-PL" || userLang === "pl") {
     greeting.src = "assets/images/msg.svg" + "?" + date.getTime();
 }
 
+let hiddenButtons = document.getElementById("hidden-buttons");
+
 setScreenStyle();
 
 const isMobileDevice = /Mobi|Android|iPhone|iPod|iPad|Windows Phone|Tablet|BlackBerry/i.test(navigator.userAgent);
@@ -107,6 +109,26 @@ links.forEach(element => {
     }
 });
 
+const hiddenLinks = document.querySelectorAll('.hidden-link');
+hiddenLinks.forEach(element => {
+    if (!isMobileDevice) {
+        element.addEventListener('mouseenter', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(-1vh)';
+            } else {
+                this.style.transform = 'scale(1.05)';
+            }
+        });
+        element.addEventListener('mouseleave', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'scale(1)';
+            }
+        });
+    }
+});
+
 function openLinkButtons() {
     const links = document.querySelectorAll('.link');
     links.forEach(link => {
@@ -131,38 +153,6 @@ chatLinks.forEach(element => {
         chatButton.style.backgroundColor = this.style.color;
     });
 });
-
-let mail = 'akotu@protonmail.com';
-let github = 'https://github.com/akotu235'
-let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
-let messenger = 'https://m.me/andrzej.kotulski.23'
-let telegram = 'https://t.me/andrzej235'
-let msm = 'https://pipefish-ruling-mink.ngrok-free.app/message'
-let projectPage = 'https://github.com/akotu235/akotu235.github.io'
-let githubPages = 'https://pages.github.com'
-
-document.getElementById("github").onclick = function () {
-    window.open(github, "_blank");
-};
-document.getElementById("messenger").onclick = function () {
-    window.open(messenger, "_blank");
-};
-document.getElementById("msm").onclick = function () {
-    window.open(msm, "_blank");
-};
-
-function setLinks() {
-    document.getElementById("mailto").href = "mailto:" + mail;
-    document.getElementById("mail").innerHTML = mail;
-
-    document.getElementById("project-page").href = projectPage;
-    document.getElementById("project-page").target = "_blank";
-    document.getElementById("project-page").rel = "noreferrer";
-
-    document.getElementById("github-pages").href = githubPages;
-    document.getElementById("github-pages").target = "_blank";
-    document.getElementById("github-pages").rel = "noreferrer";
-}
 
 function cpMail(e) {
     navigator.clipboard.writeText(mail);
@@ -208,6 +198,7 @@ function toggleChat() {
 function openChat() {
     document.getElementsByClassName("chat-window")[0].hidden = false;
     setScreenStyle();
+    hideButtons();
 }
 
 function closeChat() {
@@ -233,6 +224,7 @@ function setHorizontalScreenStyle() {
     } else {
         gg.style.display = "none";
     }
+    hiddenButtons.style.flexDirection = "row";
 }
 
 function setVerticalScreenStyle() {
@@ -245,6 +237,7 @@ function setVerticalScreenStyle() {
     });
     const gg = document.getElementById("gg");
     gg.style.display = "flex";
+    hiddenButtons.style.flexDirection = "column";
 }
 
 function setScreenStyle() {
@@ -254,3 +247,24 @@ function setScreenStyle() {
         setHorizontalScreenStyle();
     }
 }
+
+let clickCount = 0;
+function handleClick() {
+    clickCount++;
+    if (clickCount === 8) {
+        showHiddenButtons();
+    }
+}
+
+function showHiddenButtons() {
+    closeChat();
+    hiddenButtons.style.display = 'flex';
+}
+
+function hideButtons() {
+    hiddenButtons.style.display = 'none';
+    clickCount = 0;
+}
+
+const overlay = document.getElementById('overlay');
+overlay.addEventListener('click', handleClick);

@@ -25,12 +25,10 @@
 <div id="loader"><img src="assets/icons/loading.svg" alt="loading"></div>
 <div class="main-container" id="content">
     <div class="header">
-        <a href="http://pub.akotu.mywire.org">
-            <div class="img-container">
-                <img id="photo" src="assets/images/photo.jpg" alt="photo">
-                <div class="overlay"></div>
-            </div>
-        </a>
+        <div class="img-container">
+            <img id="photo" src="assets/images/photo.jpg" alt="photo">
+            <div id="overlay"></div>
+        </div>
         <img id="greeting" class="greeting" src="" alt="Hello!">
     </div>
     <div id="contact">
@@ -91,6 +89,36 @@
                 </div>
             </div>
         </div>
+        <div id="hidden-buttons">
+            <div class="hidden-section">
+                <div id="home" class="hidden-link" style="background-color: #008080">
+                    <img class="small-ico" src="assets/icons/home.svg" alt="home">
+                </div>
+                <div id="discord" class="hidden-link" style="background-color: #7289da">
+                    <img class="small-ico" src="assets/icons/discord.svg" alt="discord">
+                </div>
+                <div id="telegram" class="hidden-link" style="background-color: #27A7E7">
+                    <img class="small-ico" src="assets/icons/telegram.svg" alt="telegram">
+                </div>
+                <div id="snapchat" class="hidden-link" style="background-color: #FFFC00">
+                    <img class="small-ico" src="assets/icons/snapchat.svg" alt="snapchat">
+                </div>
+            </div>
+            <div class="hidden-section">
+                <div id="instagram" class="hidden-link" style="background-color: #833AB4">
+                    <img class="small-ico" src="assets/icons/instagram.svg" alt="instagram">
+                </div>
+                <div id="spotify" class="hidden-link" style="background-color: #1ED760">
+                    <img class="small-ico" src="assets/icons/spotify.svg" alt="spotify">
+                </div>
+                <div id="steam" class="hidden-link" style="background-color: #171A21">
+                    <img class="small-ico" src="assets/icons/steam.svg" alt="steam">
+                </div>
+                <div id="tinder" class="hidden-link" style="background-color: #FD3A73">
+                    <img class="small-ico" src="assets/icons/tinder.svg" alt="tinder">
+                </div>
+            </div>
+        </div>
         <div id="chat-window" class="chat-window" hidden>
             <button class="chat-window-buttons" onclick="closeChat()">🗙</button>
             <button class="chat-window-buttons" onclick="stretchChat()">🗖</button>
@@ -108,6 +136,7 @@
         <a id="github-pages" class="highlight-link">GitHub Pages</a>
     </p>
 </footer>
+<script src="assets/scripts/links.js"></script>
 <script src="assets/scripts/scripts.js"></script>
 </body>
 </html>
