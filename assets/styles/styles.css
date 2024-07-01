@@ -98,16 +98,11 @@ footer p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    cursor: crosshair;
-    border-radius: 100%;
-
-}
-
-.img-container:hover #overlay {
+    background-color: #000000;
     opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: none;
+    border-radius: 100%;
 }
 
 .greeting {
@@ -231,7 +226,7 @@ footer p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2vh;
+    font-size: 1.8vh;
 }
 
 .chat-links-container {
@@ -262,22 +257,33 @@ footer p {
 }
 
 #hidden-buttons {
-    display: none;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 .hidden-link {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     border-radius: 1.6vh;
     margin: 1.6vh;
-    transition: transform 0.5s ease;
     cursor: pointer;
     padding: 1vh;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.hidden-link.visible {
+    display: flex;
+}
+
+.hidden-link.animated {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .hidden-section {

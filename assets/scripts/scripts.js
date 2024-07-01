@@ -1,39 +1,15 @@
-let greeting = document.getElementById("greeting");
+const hiddenButtons = document.getElementById("hidden-buttons");
+const greeting = document.getElementById("greeting");
+const overlay = document.getElementById('overlay');
+const isMobileDevice = /Mobi|Android|iPhone|iPod|iPad|Windows Phone|Tablet|BlackBerry/i.test(navigator.userAgent);
+const links = document.querySelectorAll('.link');
+const container = document.querySelector('.links-container');
+const hiddenLinks = document.querySelectorAll('.hidden-link');
+const chatLinks = document.querySelectorAll('.chat-link');
+const chatButton = document.getElementById('chat-button');
 let date = new Date();
 let userLang = navigator.language
-if (userLang === "pl-PL" || userLang === "pl") {
-    document.querySelector("html").setAttribute("lang", "pl");
-    greeting.src = "assets/images/msg_pl.svg" + "?" + date.getTime();
-} else {
-    greeting.src = "assets/images/msg.svg" + "?" + date.getTime();
-}
-
-let hiddenButtons = document.getElementById("hidden-buttons");
-
-setScreenStyle();
-
-const isMobileDevice = /Mobi|Android|iPhone|iPod|iPad|Windows Phone|Tablet|BlackBerry/i.test(navigator.userAgent);
-if (isMobileDevice) {
-    openLinkButtons();
-}
-window.addEventListener("load", function () {
-    document.querySelector("#content").style.display = "flex";
-    document.querySelector("#loader").style.display = "none";
-    runAnimation();
-    setLinks();
-});
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-document.addEventListener('selectstart', event => event.preventDefault());
-
-document.addEventListener("dragstart", function (event) {
-    event.preventDefault();
-});
-
-window.addEventListener('resize', function () {
-    setScreenStyle();
-});
+let clickCount = 0;
 
 function runAnimation() {
     let photo = document.getElementById("photo");
@@ -79,56 +55,6 @@ function runAnimation() {
     }, 5000);
 }
 
-const links = document.querySelectorAll('.link');
-const container = document.querySelector('.links-container');
-links.forEach(element => {
-    if (!isMobileDevice) {
-        element.addEventListener('mouseenter', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(-1vh)';
-            } else {
-                this.style.transform = 'scale(1.05)';
-            }
-            const label = element.querySelector('.label');
-            const labelHover = element.querySelector('.label-hover');
-            label.style.display = 'none';
-            labelHover.style.display = 'flex';
-
-        });
-        element.addEventListener('mouseleave', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(0)';
-            } else {
-                this.style.transform = 'scale(1)';
-            }
-            const label = element.querySelector('.label');
-            const labelHover = element.querySelector('.label-hover');
-            labelHover.style.display = 'none';
-            label.style.display = 'flex';
-        });
-    }
-});
-
-const hiddenLinks = document.querySelectorAll('.hidden-link');
-hiddenLinks.forEach(element => {
-    if (!isMobileDevice) {
-        element.addEventListener('mouseenter', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(-1vh)';
-            } else {
-                this.style.transform = 'scale(1.05)';
-            }
-        });
-        element.addEventListener('mouseleave', function () {
-            if (window.getComputedStyle(container).flexDirection === 'row') {
-                this.style.transform = 'translateY(0)';
-            } else {
-                this.style.transform = 'scale(1)';
-            }
-        });
-    }
-});
-
 function openLinkButtons() {
     const links = document.querySelectorAll('.link');
     links.forEach(link => {
@@ -137,23 +63,6 @@ function openLinkButtons() {
     });
 }
 
-const chatLinks = document.querySelectorAll('.chat-link');
-const chatButton = document.getElementById('chat-button');
-chatLinks.forEach(element => {
-    element.addEventListener('mouseenter', function () {
-        this.style.transform = 'scale(1.2)';
-        chatButton.style.backgroundColor = this.style.color;
-    });
-    element.addEventListener('mouseleave', function () {
-        this.style.transform = 'scale(1)';
-        chatButton.style.backgroundColor = chatButton.style.color;
-    });
-    element.addEventListener('touchend', function () {
-        this.style.transform = 'scale(1.2)';
-        chatButton.style.backgroundColor = this.style.color;
-    });
-});
-
 function cpMail(e) {
     navigator.clipboard.writeText(mail);
     e.preventDefault();
@@ -161,19 +70,9 @@ function cpMail(e) {
     ico.src = "assets/icons/copy-success-highlighted.svg";
 }
 
-document.getElementById("cp").addEventListener("mouseover", function () {
-    this.src = "assets/icons/copy-highlighted.svg";
-    this.style.cursor = "copy";
-});
-document.getElementById("cp").addEventListener("mouseout", function () {
-    this.src = "assets/icons/copy.svg";
-});
-
 function chatIsHidden() {
     return document.getElementsByClassName("chat-window")[0].hidden;
 }
-
-document.getElementById("chat-iframe").src = getChatSrc();
 
 function getChatSrc() {
     if (userLang === "pl-PL" || userLang === "pl") {
@@ -204,6 +103,7 @@ function openChat() {
 function closeChat() {
     document.getElementsByClassName("chat-window")[0].hidden = true;
     setScreenStyle();
+    showHiddenButtons();
 }
 
 function stretchChat() {
@@ -248,23 +148,176 @@ function setScreenStyle() {
     }
 }
 
-let clickCount = 0;
-function handleClick() {
-    clickCount++;
-    if (clickCount === 8) {
-        showHiddenButtons();
+function photoClickAnimation() {
+    overlay.style.opacity = '0.5';
+    setTimeout(function () {
+        overlay.style.opacity = '0.1';
+    }, 123);
+}
+
+function enableCurrentElement(currentElementColor, currentElementName) {
+    let currentElement = document.getElementById(currentElementName);
+    if (currentElement) {
+        currentElement.style.backgroundColor = currentElementColor;
+        currentElement.classList.add('visible');
+       setTimeout(() => {
+            currentElement.classList.add('animated');
+        }, 123);
     }
 }
 
+function handleClick() {
+    clickCount++;
+    if (clickCount === 2) {
+        overlay.style.backgroundColor = '#008080';
+    } else if (clickCount === 3) {
+        overlay.style.backgroundColor = '#7289da';
+        enableCurrentElement('#008080', 'home');
+    } else if (clickCount === 5) {
+        overlay.style.backgroundColor = '#27A7E7';
+        enableCurrentElement('#7289da', 'discord');
+    } else if (clickCount === 8) {
+        overlay.style.backgroundColor = '#FFFC00';
+        enableCurrentElement('#27A7E7', 'telegram');
+    } else if (clickCount === 13) {
+        overlay.style.backgroundColor = '#833AB4';
+        enableCurrentElement('#FFFC00', 'snapchat');
+    } else if (clickCount === 21) {
+        overlay.style.backgroundColor = '#1ED760';
+        enableCurrentElement('#833AB4', 'instagram');
+    } else if (clickCount === 34) {
+        overlay.style.backgroundColor = '#171A21';
+        enableCurrentElement('#1ED760', 'spotify');
+    } else if (clickCount === 55) {
+        overlay.style.backgroundColor = '#FD3A73';
+        enableCurrentElement('#171A21', 'steam');
+    } else if (clickCount === 89) {
+        overlay.style.backgroundColor = '#FFC0CB';
+        enableCurrentElement('#FD3A73', 'tinder');
+    } else if (clickCount === 144) {
+
+    }
+    photoClickAnimation();
+}
+
 function showHiddenButtons() {
-    closeChat();
     hiddenButtons.style.display = 'flex';
 }
 
 function hideButtons() {
     hiddenButtons.style.display = 'none';
-    clickCount = 0;
 }
 
-const overlay = document.getElementById('overlay');
+if (userLang === "pl-PL" || userLang === "pl") {
+    document.querySelector("html").setAttribute("lang", "pl");
+    greeting.src = "assets/images/msg_pl.svg" + "?" + date.getTime();
+} else {
+    greeting.src = "assets/images/msg.svg" + "?" + date.getTime();
+}
+
+setScreenStyle();
+
+if (isMobileDevice) {
+    openLinkButtons();
+}
+window.addEventListener("load", function () {
+    document.querySelector("#content").style.display = "flex";
+    document.querySelector("#loader").style.display = "none";
+    runAnimation();
+    setLinks();
+});
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.addEventListener('selectstart', event => event.preventDefault());
+
+document.addEventListener("dragstart", function (event) {
+    event.preventDefault();
+});
+
+window.addEventListener('resize', function () {
+    setScreenStyle();
+});
+
+links.forEach(element => {
+    if (!isMobileDevice) {
+        element.addEventListener('mouseenter', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(-1vh)';
+            } else {
+                this.style.transform = 'scale(1.05)';
+            }
+            const label = element.querySelector('.label');
+            const labelHover = element.querySelector('.label-hover');
+            label.style.display = 'none';
+            labelHover.style.display = 'flex';
+
+        });
+        element.addEventListener('mouseleave', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'scale(1)';
+            }
+            const label = element.querySelector('.label');
+            const labelHover = element.querySelector('.label-hover');
+            labelHover.style.display = 'none';
+            label.style.display = 'flex';
+        });
+    }
+});
+
+hiddenLinks.forEach(element => {
+    if (!isMobileDevice) {
+        element.addEventListener('mouseenter', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(-1vh)';
+            } else {
+                this.style.transform = 'scale(1.05)';
+            }
+        });
+        element.addEventListener('mouseleave', function () {
+            if (window.getComputedStyle(container).flexDirection === 'row') {
+                this.style.transform = 'translateY(0)';
+            } else {
+                this.style.transform = 'scale(1)';
+            }
+        });
+    }
+});
+
+chatLinks.forEach(element => {
+    element.addEventListener('mouseenter', function () {
+        this.style.transform = 'scale(1.2)';
+        chatButton.style.backgroundColor = this.style.color;
+    });
+    element.addEventListener('mouseleave', function () {
+        this.style.transform = 'scale(1)';
+        chatButton.style.backgroundColor = chatButton.style.color;
+    });
+    element.addEventListener('touchend', function () {
+        this.style.transform = 'scale(1.2)';
+        chatButton.style.backgroundColor = this.style.color;
+    });
+});
+
+document.getElementById("cp").addEventListener("mouseover", function () {
+    this.src = "assets/icons/copy-highlighted.svg";
+    this.style.cursor = "copy";
+});
+document.getElementById("cp").addEventListener("mouseout", function () {
+    this.src = "assets/icons/copy.svg";
+});
+
+document.getElementById("chat-iframe").src = getChatSrc();
+
 overlay.addEventListener('click', handleClick);
+
+document.addEventListener("DOMContentLoaded", function () {
+    overlay.addEventListener("mouseover", function () {
+        overlay.style.opacity = '0.1';
+    });
+    overlay.addEventListener("mouseout", function () {
+        overlay.style.opacity = '0';
+    });
+});
