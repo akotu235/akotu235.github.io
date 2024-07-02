@@ -2,6 +2,7 @@
 let mail = 'akotu@protonmail.com';
 let github = 'https://github.com/akotu235'
 let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
+let facebook = 'https://www.facebook.com/andrzej.kotulski.23'
 let messenger = 'https://m.me/andrzej.kotulski.23'
 let msm = 'https://pipefish-ruling-mink.ngrok-free.app/message'
 let projectPage = 'https://github.com/akotu235/akotu235.github.io'
@@ -28,8 +29,8 @@ document.getElementById("msm").onclick = function () {
 document.getElementById("home").onclick = function () {
     window.open(home, "_blank");
 };
-document.getElementById("discord").onclick = function () {
-    window.open(discord, "_blank");
+document.getElementById("facebook").onclick = function () {
+    window.open(facebook, "_blank");
 };
 document.getElementById("telegram").onclick = function () {
     window.open(telegram, "_blank");

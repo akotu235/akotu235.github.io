@@ -171,11 +171,11 @@ function handleClick() {
     if (clickCount === 2) {
         overlay.style.backgroundColor = '#008080';
     } else if (clickCount === 3) {
-        overlay.style.backgroundColor = '#7289da';
+        overlay.style.backgroundColor = '#0165E1';
         enableCurrentElement('#008080', 'home');
     } else if (clickCount === 5) {
         overlay.style.backgroundColor = '#27A7E7';
-        enableCurrentElement('#7289da', 'discord');
+        enableCurrentElement('#0165E1', 'facebook');
     } else if (clickCount === 8) {
         overlay.style.backgroundColor = '#FFFC00';
         enableCurrentElement('#27A7E7', 'telegram');
