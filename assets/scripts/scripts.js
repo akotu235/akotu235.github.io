@@ -11,6 +11,8 @@ let date = new Date();
 let userLang = navigator.language
 let clickCount = 0;
 
+document.getElementById("year").textContent = new Date().getFullYear();
+
 function runAnimation() {
     let photo = document.getElementById("photo");
     photo.style.display = "block";
