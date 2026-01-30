@@ -1,5 +1,5 @@
 
-let mail = 'akotu@protonmail.com';
+let mail = 'akotulski23@gmail.com';
 let github = 'https://github.com/akotu235'
 let linkedin = 'https://www.linkedin.com/in/andrzej-kotulski'
 let facebook = 'https://www.facebook.com/andrzej.kotulski.23'
@@ -11,7 +11,7 @@ let home = 'https://pipefish-ruling-mink.ngrok-free.app'
 let discord = 'https://discord.com/users/akotu#6949'
 let telegram = 'https://t.me/andrzej235'
 let snapchat = 'https://www.snapchat.com/add/endriu235'
-let instagram = 'https://www.instagram.com/endrju235'
+let instagram = 'https://www.instagram.com/andrzej.235'
 let spotify = 'https://open.spotify.com/user/31e6si4vgpevgczlmqkr3jzvdxsy?si=e8a6eb2aade24995'
 let steam = 'https://steamcommunity.com/profiles/76561197996603058'
 let tinder = 'https://tinder.com/@endrjuu'

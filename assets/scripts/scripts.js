@@ -170,34 +170,28 @@ function enableCurrentElement(currentElementColor, currentElementName) {
 
 function handleClick() {
     clickCount++;
-    if (clickCount === 2) {
-        overlay.style.backgroundColor = '#008080';
+    if (clickCount === 1) {
+        overlay.style.backgroundColor = '#833AB4';
+    } else if (clickCount === 2) {
+        enableCurrentElement('#833AB4', 'instagram');
     } else if (clickCount === 3) {
         overlay.style.backgroundColor = '#0165E1';
-        enableCurrentElement('#008080', 'home');
-    } else if (clickCount === 5) {
-        overlay.style.backgroundColor = '#27A7E7';
+    }else if (clickCount === 5) {
         enableCurrentElement('#0165E1', 'facebook');
-    } else if (clickCount === 8) {
+    }else if (clickCount === 6) {
         overlay.style.backgroundColor = '#FFFC00';
-        enableCurrentElement('#27A7E7', 'telegram');
-    } else if (clickCount === 13) {
-        overlay.style.backgroundColor = '#833AB4';
+    }else if (clickCount === 10) {
         enableCurrentElement('#FFFC00', 'snapchat');
-    } else if (clickCount === 21) {
-        overlay.style.backgroundColor = '#1ED760';
-        enableCurrentElement('#833AB4', 'instagram');
-    } else if (clickCount === 34) {
+    }else if (clickCount === 11) {
         overlay.style.backgroundColor = '#171A21';
-        enableCurrentElement('#1ED760', 'spotify');
-    } else if (clickCount === 55) {
-        overlay.style.backgroundColor = '#FD3A73';
+    } else if (clickCount === 18) {
         enableCurrentElement('#171A21', 'steam');
-    } else if (clickCount === 89) {
-        overlay.style.backgroundColor = '#FFC0CB';
+    } else if (clickCount === 19) {
+        overlay.style.backgroundColor = '#FD3A73';
+    } else if (clickCount === 31) {
         enableCurrentElement('#FD3A73', 'tinder');
-    } else if (clickCount === 144) {
-
+    } else if (clickCount === 32) {
+        overlay.style.backgroundColor = '#FFC0CB';
     }
     photoClickAnimation();
 }
